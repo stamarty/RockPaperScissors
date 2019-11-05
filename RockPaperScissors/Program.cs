@@ -152,44 +152,44 @@ namespace RockPaperScissors
             if (playerSelect == opponentSelect)
             {
                 Console.WriteLine("Game is a tie! ");
-                tieScore = tieScore + 1;
+                tieScore++;
             }
             //hamsters win
             else if (playerSelect == "Rock" && opponentSelect == "Paper")
             {
                 Console.WriteLine("The Horde of Hamsters Wins! ");
-                opponentScore = opponentScore + 1;
+                opponentScore++;
             }
 
             else if (playerSelect == "Paper" && opponentSelect == "Scissors")
             {
                 Console.WriteLine("The Horde of Hamsters Wins! ");
-                opponentScore  = opponentScore + 1;
+                opponentScore++;
             }
 
             else if (playerSelect == "Scissors" && opponentSelect == "Rock")
             {
                 Console.WriteLine("The Horde of Hamsters Wins! ");
-                opponentScore  = opponentScore + 1;
+                opponentScore++;
             }
 
             //player win
             else if (playerSelect == "Rock" && opponentSelect == "Scissors")
             {
                 Console.WriteLine("You Win! ");
-                playerScore = playerScore + 1;
+                playerScore++;
             }
 
             else if (playerSelect == "Paper" && opponentSelect == "Rock")
             {
                 Console.WriteLine("You Win! ");
-                playerScore = playerScore + 1;
+                playerScore++;
             }
 
             else if (playerSelect == "Scissors" && opponentSelect == "Paper")
             {
                 Console.WriteLine("You Win! ");
-                playerScore = playerScore + 1;
+                playerScore++;
             }
 
             Console.WriteLine("Player Score = {0} ", playerScore);
