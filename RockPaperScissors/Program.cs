@@ -12,13 +12,12 @@ namespace RockPaperScissors
             p1.GetPlayerName();
             p1.NeedRules();
 
-
             //Create the Opponent object
             Opponent o1 = new Opponent();
 
             //start the game
             Game game = new Game();
-
+            
             do
             {
                 string playerDecision = p1.PlayerSelection();
@@ -27,7 +26,7 @@ namespace RockPaperScissors
                 Console.WriteLine("You chose {0}", playerDecision);
                 Console.WriteLine("The Horde of Hamsters chose {0}", opponentDecision);
                 game.WhoWins(playerDecision, opponentDecision);
-
+                
             } while (game.PlayAgain());
         }
     }
@@ -35,8 +34,6 @@ namespace RockPaperScissors
     public class Player
     {
         string playerName;
-        //int playerWinCount = 0;
-        //int playerStreakCount = 0;
 
         public void GetPlayerName()
         {
@@ -79,6 +76,7 @@ namespace RockPaperScissors
                 Console.WriteLine();
                 Console.WriteLine("It's just like the circle of life.");
                 Console.WriteLine();
+                Console.WriteLine("Press any key when ready to continue");
                 Console.ReadLine();
             }
 
@@ -144,46 +142,61 @@ namespace RockPaperScissors
 
     public class Game
     {
+        int playerScore = 0;
+        int opponentScore = 0;
+        int tieScore = 0;
+
         public void WhoWins(string playerSelect, string opponentSelect)
         {
             //tie
             if (playerSelect == opponentSelect)
             {
                 Console.WriteLine("Game is a tie! ");
+                tieScore = tieScore + 1;
             }
             //hamsters win
             else if (playerSelect == "Rock" && opponentSelect == "Paper")
             {
                 Console.WriteLine("The Horde of Hamsters Wins! ");
+                opponentScore = opponentScore + 1;
             }
 
             else if (playerSelect == "Paper" && opponentSelect == "Scissors")
             {
                 Console.WriteLine("The Horde of Hamsters Wins! ");
+                opponentScore  = opponentScore + 1;
             }
 
             else if (playerSelect == "Scissors" && opponentSelect == "Rock")
             {
                 Console.WriteLine("The Horde of Hamsters Wins! ");
+                opponentScore  = opponentScore + 1;
             }
 
             //player win
             else if (playerSelect == "Rock" && opponentSelect == "Scissors")
             {
                 Console.WriteLine("You Win! ");
+                playerScore = playerScore + 1;
             }
 
             else if (playerSelect == "Paper" && opponentSelect == "Rock")
             {
                 Console.WriteLine("You Win! ");
+                playerScore = playerScore + 1;
             }
 
             else if (playerSelect == "Scissors" && opponentSelect == "Paper")
             {
                 Console.WriteLine("You Win! ");
+                playerScore = playerScore + 1;
             }
-        }
 
+            Console.WriteLine("Player Score = {0} ", playerScore);
+            Console.WriteLine("Hamster Score = {0} ", opponentScore);
+            Console.WriteLine("Tie Score = {0} ", tieScore);
+        }
+    
         public bool PlayAgain()
         {
             Console.WriteLine();
